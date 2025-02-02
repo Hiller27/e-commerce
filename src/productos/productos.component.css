@@ -1,0 +1,23 @@
+/* src/app/products/products.component.css */
+.product-list {
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  .product-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .product-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .product-item p {
+    color: #555;
+  }
+  

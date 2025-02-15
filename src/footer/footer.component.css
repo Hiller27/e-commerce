@@ -1,0 +1,71 @@
+/* footer.component.css */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+  padding-bottom: 10px;
+}
+
+.footer-links, .footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  gap: 15px;
+}
+
+.social-icon {
+  color: white;
+  font-size: 20px;
+}
+
+.social-icon:hover {
+  color: #1da1f2; /* Color de hover para Twitter, puedes cambiarlo para cada red social */
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 12px;
+  background-color: #333;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin-bottom: 10px;
+  }
+}

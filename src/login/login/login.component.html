@@ -1,0 +1,65 @@
+<div class="body">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <!-- Formulario de Inicio de Sesión -->
+        <form *ngIf="showLoginForm" (ngSubmit)="login()">
+          <h3 class="fw-bold">Iniciar sesión</h3>
+
+          <label class="fw-bold" for="username">Usuario</label>
+          <input class="border rounded-end-4" type="text" placeholder="Ingresa tu usuario" id="username" name="username" [(ngModel)]="username">
+
+          <label class="fw-bold" for="password">Contraseña</label>
+          <div class="password-container">
+            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Ingresa tu contraseña" id="password" name="password" [(ngModel)]="password">
+            <span class="toggle-password" (click)="togglePassword()">
+              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
+            </span>
+          </div>
+
+          <button class="text-white w-100 fw-bold" type="submit">Iniciar sesión</button>
+          <button class="w-100 mt-3 fw-bold" id="registerButton" type="button" (click)="toggleForm()">Registrarse</button>
+          <p class="message" [ngClass]="loginMessage === 'Inicio de sesión exitoso' ? 'text-success' : 'text-danger'" *ngIf="loginMessage">{{ loginMessage }}</p>
+        </form>
+
+        <!-- Formulario de Registro -->
+        <form *ngIf="!showLoginForm" (ngSubmit)="register()">
+          <h3 class="fw-bold">Registrarse</h3>
+
+          <label class="fw-bold" for="username">Usuario</label>
+          <input class="border rounded-end-4" type="text" placeholder="Ingresa tu usuario" id="username" name="username" [(ngModel)]="username">
+
+          <label class="fw-bold" for="email">Correo electrónico</label>
+          <input class="border rounded-end-4" type="email" placeholder="Ingresa tu correo electrónico" id="email" name="email" [(ngModel)]="email">
+
+          <label class="fw-bold" for="password">Contraseña</label>
+          <div class="password-container">
+            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Ingresa tu contraseña" id="password" name="password" [(ngModel)]="password">
+            <span class="toggle-password" (click)="togglePassword()">
+              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
+            </span>
+          </div>
+
+          <label class="fw-bold" for="confirmPassword">Confirmar Contraseña</label>
+          <div class="password-container">
+            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Confirma tu contraseña" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword">
+            <span class="toggle-password" (click)="togglePassword()">
+              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
+            </span>
+          </div>
+
+          <button class="text-white w-100 fw-bold" type="submit">Registrarse</button>
+          <button class="w-100 mt-3 fw-bold text-white" id="loginButton" type="button" (click)="toggleForm()">Iniciar sesión</button>
+          <p class="message" [ngClass]="registerMessage === 'Registro exitoso' ? 'text-success' : 'text-danger'" *ngIf="registerMessage">{{ registerMessage }}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<section class="home">
+
+    <!-- Botón para retroceder -->
+    <button class="carousel-btn left" (click)="prevSlide()">&#10094;</button>
+
+    <div class="home-text">
+        <h4>{{ currentSlide.text }}</h4>
+        <h1>{{ currentSlide.title }}</h1>
+        <p>{{ currentSlide.description }}</p>
+
+        <div class="btn">
+            <a href="#">Comprar</a>
+        </div>
+    </div>
+
+    <div class="home-img">
+        <div class="image"></div>
+    </div>
+
+    <!-- Botón para avanzar -->
+    <button class="carousel-btn right" (click)="nextSlide()">&#10095;</button>
+</section>

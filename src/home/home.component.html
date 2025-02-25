@@ -1,9 +1,17 @@
-<app-header></app-header>
 
+
+<div *ngIf="isLoading">
+    <app-spinner></app-spinner>
+  </div>
+  
+  <div *ngIf="!isLoading">
+    <app-header></app-header>
+  
 <!-- Carrusel de imagenes -->
 <app-carousel></app-carousel>
 
 <!-- Cartas de productos -->
 <app-cards></app-cards>
-
-<!-- <app-footer></app-footer> -->
+    <app-footer></app-footer>
+  </div>
+>>>>>>> DEV_HILLER_Login_and_register

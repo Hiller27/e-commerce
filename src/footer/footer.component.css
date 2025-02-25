@@ -1,71 +1,91 @@
-/* footer.component.css */
 .footer {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  background-color: #222;
-  color: white;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  color: black;
+  text-align: center;
+  padding: 25px 0;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(8px);
 }
 
-.footer-content {
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-row {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  max-width: 1200px;
-  padding-bottom: 10px;
-}
-
-.footer-links, .footer-socials {
-  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
-.footer-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-.footer-socials {
-  gap: 15px;
-}
-
-.social-icon {
-  color: white;
-  font-size: 20px;
-}
-
-.social-icon:hover {
-  color: #1da1f2; /* Color de hover para Twitter, puedes cambiarlo para cada red social */
-}
-
-.footer-bottom {
-  width: 100%;
+.footer-column {
+  flex: 1;
+  min-width: 250px;
   text-align: center;
-  padding-top: 10px;
-  font-size: 12px;
-  background-color: #333;
 }
 
-/* Estilo responsivo */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
 
-  .footer-links {
-    margin-bottom: 10px;
+.footer-column p {
+  font-size: 14px;
+  color: #444;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #0056b3;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 30px;
+  margin: 0 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }

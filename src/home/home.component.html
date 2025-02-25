@@ -1,16 +1,19 @@
-
-
 <div *ngIf="isLoading">
-    <app-spinner></app-spinner>
-  </div>
-  
-  <div *ngIf="!isLoading">
-    <app-header></app-header>
-  
-<!-- Carrusel de imagenes -->
-<app-carousel></app-carousel>
+  <app-spinner></app-spinner>
+</div>
 
-<!-- Cartas de productos -->
-<app-cards></app-cards>
-    <app-footer></app-footer>
+<div *ngIf="!isLoading" class="main-container">
+  <app-header></app-header>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <!-- Carrusel de imágenes -->
+    <app-carousel></app-carousel>
+
+    <!-- Cartas de productos -->
+    <app-cards></app-cards>
   </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

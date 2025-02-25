@@ -1,12 +1,13 @@
 .header {
   width: 100%;
   height: 75px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.9); /* Aumenté la opacidad para mejor legibilidad */
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px); /* Efecto de desenfoque para un look moderno */
 }
 
 .container {
@@ -16,18 +17,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .logo {
   float: left;
-  line-height: 45px;
+  line-height: 75px; /* Ajusté la altura para que coincida con el header */
 }
 
 .logo h1 {
   color: #000000;
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: 600; /* Aumenté el peso de la fuente para más impacto */
+  font-size: 26px;
   cursor: default;
+  margin: 0; /* Eliminé el margen por defecto */
+}
+
+form {
+  flex-grow: 1;
+  margin: 0 20px; /* Añadí margen para separar del logo y el menú */
+}
+
+form input[type="search"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Bordes redondeados para un look más suave */
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="search"]:focus {
+  border-color: #40de32; /* Cambio de color al enfocar */
 }
 
 .menu {
@@ -39,19 +62,50 @@
   color: #000000;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 25px;
+  padding: 10px 20px;
   line-height: normal;
-  font-size: 20px;
-  transition: all 500ms ease;
+  font-size: 25px;
+  transition: all 0.3s ease;
   border-bottom: 4px solid transparent;
   position: relative;
-  font-weight: bold;
+  font-weight: 500; /* Reduje el peso de la fuente para un look más limpio */
 }
+
 .menu i {
-  font-size: 2rem;
+  font-size: 2rem; /* Ajusté el tamaño de los íconos */
+  margin-left: 10px; /* Espacio entre íconos y texto */
 }
 
 .menu a:hover {
   color: #40de32;
   border-bottom: 4px solid #40de32;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+.menu a:hover .submenu {
+  display: block;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px 20px;
+  color: #000;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.submenu a:hover {
+  background: #f0f0f0;
+  color: #40de32;
 }

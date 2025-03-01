@@ -1,56 +1,11 @@
 .header {
   width: 100%;
   height: 75px;
-  background: rgba(255, 255, 255, 0.9); /* Aumenté la opacidad para mejor legibilidad */
+  background: rgba(255, 255, 255, 0.9);
   position: fixed;
-  z-index: 10;
+  z-index: 9999;
   top: 0;
   left: 0;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px); /* Efecto de desenfoque para un look moderno */
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.logo {
-  float: left;
-  line-height: 75px; /* Ajusté la altura para que coincida con el header */
-}
-
-.logo h1 {
-  color: #000000;
-  font-weight: 600; /* Aumenté el peso de la fuente para más impacto */
-  font-size: 26px;
-  cursor: default;
-  margin: 0; /* Eliminé el margen por defecto */
-}
-
-form {
-  flex-grow: 1;
-  margin: 0 20px; /* Añadí margen para separar del logo y el menú */
-}
-
-form input[type="search"] {
-  width: 100%;
-  max-width: 400px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px; /* Bordes redondeados para un look más suave */
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-form input[type="search"]:focus {
-  border-color: #40de32; /* Cambio de color al enfocar */
 }
 
 .menu {
@@ -64,16 +19,11 @@ form input[type="search"]:focus {
   display: inline-block;
   padding: 10px 20px;
   line-height: normal;
-  font-size: 25px;
+  font-size: 23px;
   transition: all 0.3s ease;
   border-bottom: 4px solid transparent;
   position: relative;
-  font-weight: 500; /* Reduje el peso de la fuente para un look más limpio */
-}
-
-.menu i {
-  font-size: 2rem; /* Ajusté el tamaño de los íconos */
-  margin-left: 10px; /* Espacio entre íconos y texto */
+  font-weight: 500;
 }
 
 .menu a:hover {
@@ -101,7 +51,7 @@ form input[type="search"]:focus {
   display: block;
   padding: 10px 20px;
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
   transition: background 0.3s ease;
 }
 
@@ -109,3 +59,87 @@ form input[type="search"]:focus {
   background: #f0f0f0;
   color: #40de32;
 }
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.user-menu-container {
+  position: relative;
+}
+
+.user-submenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.user-submenu a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.user-submenu a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+
+
+    .menu {
+      display: none;
+      position: fixed;
+      top: 75px;
+      right: 0;
+      width: 250px;
+      height: calc(100vh - 75px);
+      background: rgba(255, 255, 255, 0.9);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .menu a {
+      padding: 15px 0;
+      font-size: 18px;
+    }
+
+    .submenu {
+      position: static;
+      display: none;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .menu a.active .submenu {
+      display: block;
+    }
+  }
+

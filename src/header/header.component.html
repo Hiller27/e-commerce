@@ -1,29 +1,56 @@
-<header class="header">
-  <div class="container">
+<header class="header fixed-top bg-white shadow-sm">
+  <div class="container d-flex justify-content-between align-items-center h-100">
     <div class="logo">
-      <h1>SLee Dw</h1>
+      <h1 class="mb-0 fw-bold fs-4" style="cursor: pointer;" routerLink="/home">SLee Dw</h1>
     </div>
-    <form>
-      <input type="search" placeholder="Search..." style="border: 1px solid rgb(145, 132, 132);margin-right: 140px;" > 
+    <form class="d-flex" style="width: 100%; max-width: 400px; padding: 8px 12px; border-radius: 20px; font-size: 16px; outline: none; transition: border-color 0.3s ease;">
+      <input class="form-control me-2 rounded-pill" type="search" placeholder="Search..." aria-label="Search">
     </form>
-  
-    <nav class="menu">
-      <a href="#"> Marcas
+
+    <!-- Botón para abrir/cerrar el menú en móviles -->
+    <button class="navbar-toggler d-lg-none" type="button" (click)="toggleMenu()" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Menú principal -->
+    <nav class="menu" [class.active]="isMenuOpen">
+      <a href="#" (click)="closeMenu()"> Marcas
         <div class="submenu">
-          <a href="#">Marca 1</a>
-          <a href="#">Marca 2</a>
-          <a href="#">Marca 3</a>
+          <a href="#" (click)="closeMenu()">Marca 1</a>
+          <a href="#" (click)="closeMenu()">Marca 2</a>
+          <a href="#" (click)="closeMenu()">Marca 3</a>
         </div>
       </a>
-      <a href="#">Productos
+      <a href="#" (click)="closeMenu()">Productos
         <div class="submenu">
-          <a href="#">Marca A</a>
-          <a href="#">Marca B</a>
+          <a href="#" (click)="closeMenu()">Marca A</a>
+          <a href="#" (click)="closeMenu()">Marca B</a>
         </div>
       </a>
-      <a href="#">Blog</a>
-      <a href="#"><i class="bi bi-cart4"></i></a>
-      <a href="#"  routerLink="/login"><i class="bi bi-person-circle"></i></a>
+      <a href="#" (click)="closeMenu()">Blog</a>
+      <a href="#" (click)="closeMenu()"><i class="bi bi-cart4" style="font-size: 2rem;"></i></a>
+
+      <!-- Mostrar nombre de usuario e ícono si ha iniciado sesión -->
+      <ng-container *ngIf="isLoggedIn; else loginIcon">
+        <div class="user-menu-container">
+          <a href="#" (click)="toggleUserMenu()" style="font-size: 2rem;">
+            <img src="https://i.ibb.co/Kp0mF8WV/icons8-usuario-100.png" alt="" width="50px" height="50px">
+          </a>
+          <!-- Submenú del usuario -->
+          <div class="user-submenu" *ngIf="isUserMenuOpen">
+            <a href="#" routerLink="/inf-user">Mi información</a>
+            <a href="#" (click)="closeUserMenu()">Mis compras</a>
+            <a href="#" (click)="logout()">Cerrar sesión</a>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Mostrar ícono de inicio de sesión si no ha iniciado sesión -->
+      <ng-template #loginIcon>
+        <a href="#" routerLink="/login" (click)="closeMenu()" style="font-size: 2rem;">
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </ng-template>
     </nav>
   </div>
 </header>

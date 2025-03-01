@@ -13,51 +13,178 @@
         <form *ngIf="showLoginForm" (ngSubmit)="login()">
           <h3 class="fw-bold">Iniciar sesión</h3>
 
-          <label class="fw-bold" for="username">Usuario</label>
-          <input class="border rounded-end-4" type="text" placeholder="Ingresa tu usuario" id="username" name="username" [(ngModel)]="username">
-
-          <label class="fw-bold" for="password">Contraseña</label>
-          <div class="password-container">
-            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Ingresa tu contraseña" id="password" name="password" [(ngModel)]="password">
-            <span class="toggle-password" (click)="togglePassword()">
-              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
-            </span>
+          <!-- Campo de Usuario -->
+          <div class="form-group mb-3">
+            <label class="fw-bold" for="username">Usuario</label>
+            <input
+              class="form-control border rounded-end-4"
+              type="text"
+              placeholder="Ingresa tu usuario"
+              id="username"
+              name="username"
+              [(ngModel)]="username"
+            />
           </div>
 
-          <button class="text-white w-100 fw-bold" type="submit">Iniciar sesión</button>
-          <button class="w-100 mt-3 fw-bold" id="registerButton" type="button" (click)="toggleForm()">Registrarse</button>
-          <p class="message" [ngClass]="loginMessage === 'Inicio de sesión exitoso' ? 'text-success' : 'text-danger'" *ngIf="loginMessage">{{ loginMessage }}</p>
+          <!-- Campo de Contraseña -->
+          <div class="form-group mb-3">
+            <label class="fw-bold" for="password">Contraseña</label>
+            <div class="password-container">
+              <input
+                class="form-control border rounded-end-4"
+                [type]="passwordVisible ? 'text' : 'password'"
+                placeholder="Ingresa tu contraseña"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+              />
+              <span class="toggle-password" (click)="togglePassword()">
+                <i
+                  [class]="
+                    passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'
+                  "
+                  style="font-size: 1.5rem;"
+                ></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Botones en fila horizontal en pantallas grandes, columna en móviles -->
+          <div class="d-flex flex-column flex-md-row gap-3">
+            <button
+              class="btn btn-primary text-white fw-bold flex-grow-1"
+              type="submit"
+            >
+              Iniciar sesión
+            </button>
+            <button
+              class="btn btn-secondary fw-bold text-white flex-grow-1"
+              id="registerButton"
+              type="button"
+              (click)="toggleForm()"
+            >
+              Registrarse
+            </button>
+          </div>
+
+          <!-- Mensaje de Inicio de Sesión -->
+          <p
+            class="message mt-3"
+            [ngClass]="
+              loginMessage === 'Inicio de sesión exitoso'
+                ? 'text-success'
+                : 'text-danger'
+            "
+            *ngIf="loginMessage"
+          >
+            {{ loginMessage }}
+          </p>
         </form>
 
         <!-- Formulario de Registro -->
         <form *ngIf="!showLoginForm" (ngSubmit)="register()">
           <h3 class="fw-bold">Registrarse</h3>
 
-          <label class="fw-bold" for="username">Usuario</label>
-          <input class="border rounded-end-4" type="text" placeholder="Ingresa tu usuario" id="username" name="username" [(ngModel)]="username">
+          <!-- Fila horizontal en pantallas grandes, columna en móviles -->
+          <div class="d-flex flex-column flex-md-row gap-3 mb-2">
+            <!-- Campo de Usuario -->
+            <div class="flex-grow-1">
+              <label class="fw-bold" for="username">Usuario</label>
+              <input
+                class="form-control border rounded-end-4"
+                type="text"
+                placeholder="Ingresa tu usuario"
+                id="username"
+                name="username"
+                [(ngModel)]="username"
+              />
+            </div>
 
-          <label class="fw-bold" for="email">Correo electrónico</label>
-          <input class="border rounded-end-4" type="email" placeholder="Ingresa tu correo electrónico" id="email" name="email" [(ngModel)]="email">
-
-          <label class="fw-bold" for="password">Contraseña</label>
-          <div class="password-container">
-            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Ingresa tu contraseña" id="password" name="password" [(ngModel)]="password">
-            <span class="toggle-password" (click)="togglePassword()">
-              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
-            </span>
+            <!-- Campo de Correo electrónico -->
+            <div class="flex-grow-1">
+              <label class="fw-bold" for="email">Correo electrónico</label>
+              <input
+                class="form-control border rounded-end-4"
+                type="email"
+                placeholder="Ingresa tu correo electrónico"
+                id="email"
+                name="email"
+                [(ngModel)]="email"
+              />
+            </div>
           </div>
 
-          <label class="fw-bold" for="confirmPassword">Confirmar Contraseña</label>
-          <div class="password-container">
-            <input class="border rounded-end-4" [type]="passwordVisible ? 'text' : 'password'" placeholder="Confirma tu contraseña" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword">
-            <span class="toggle-password" (click)="togglePassword()">
-              <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'" style="font-size: 1.5rem;"></i>
-            </span>
+          <!-- Campo de Contraseña -->
+          <div class="form-group mb-2">
+            <label class="fw-bold" for="password">Contraseña</label>
+            <div class="password-container">
+              <input
+                class="form-control border rounded-end-4"
+                [type]="passwordVisible ? 'text' : 'password'"
+                placeholder="Ingresa tu contraseña"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+              />
+              <span class="toggle-password" (click)="togglePassword()">
+                <i
+                  [class]="
+                    passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'
+                  "
+                  style="font-size: 1.5rem;"
+                ></i>
+              </span>
+            </div>
           </div>
 
-          <button class="text-white w-100 fw-bold" type="submit">Registrarse</button>
-          <button class="w-100 mt-3 fw-bold text-white" id="loginButton" type="button" (click)="toggleForm()">Iniciar sesión</button>
-          <p class="message" [ngClass]="registerMessage === 'Registro exitoso' ? 'text-success' : 'text-danger'" *ngIf="registerMessage">{{ registerMessage }}</p>
+          <!-- Campo de Confirmar Contraseña -->
+          <div class="form-group mb-2">
+            <label class="fw-bold" for="confirmPassword">Confirmar Contraseña</label>
+            <div class="password-container">
+              <input
+                class="form-control border rounded-end-4"
+                [type]="passwordVisible ? 'text' : 'password'"
+                placeholder="Confirma tu contraseña"
+                id="confirmPassword"
+                name="confirmPassword"
+                [(ngModel)]="confirmPassword"
+              />
+              <span class="toggle-password" (click)="togglePassword()">
+                <i
+                  [class]="
+                    passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'
+                  "
+                  style="font-size: 1.5rem;"
+                ></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- Botones en fila horizontal en pantallas grandes, columna en móviles -->
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <button class="btn btn-primary text-white fw-bold flex-grow-1" type="submit">
+              Registrarse
+            </button>
+            <button
+              class="btn btn-secondary fw-bold text-white flex-grow-1"
+              id="loginButton"
+              type="button"
+              (click)="toggleForm()" style="background-color: #2196F3;"
+            >
+              Iniciar sesión
+            </button>
+          </div>
+
+          <!-- Mensaje de Registro -->
+          <p
+            class="message mt-3"
+            [ngClass]="
+              registerMessage === 'Registro exitoso' ? 'text-success' : 'text-danger'
+            "
+            *ngIf="registerMessage"
+          >
+            {{ registerMessage }}
+          </p>
         </form>
       </div>
     </div>
